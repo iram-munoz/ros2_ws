@@ -1,0 +1,28 @@
+#---- Colcon compilation artifacts ----
+build/
+install/
+log/
+
+#---- Editors ----
+.vscode/*
+!.vscode/settings.json
+.idea/
+*.swp
+*~
+
+#---- Python ----
+__pycache__/
+*.pyc
+.venv/
+
+#---- Datasets, recordings and models ----
+datasets/
+*.bag
+*.mcap
+*.db3
+*.pth
+*.onnx
+*.engine
+
+#---- System ----
+.DS_Store
