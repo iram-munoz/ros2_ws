@@ -1,0 +1,21 @@
+{
+  "ros.distro": "lyrical",
+  "editor.tabSize": 2,
+  "editor.rulers": [100],
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "C_Cpp.clang_format_style": "file",
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+  "C_Cpp.default.cppStandard": "c++20",
+  "search.exclude": {
+    "**/build": true,
+    "**/install": true,
+    "**/log": true
+  },
+  "files.associations": {
+    "*.urdf": "xml",
+    "*.xacro": "xml",
+    "*.sdf": "xml"
+  }
+}
