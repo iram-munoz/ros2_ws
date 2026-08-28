@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.20)
 project(my_first_package)
 
+# ---- Estándar de C++ (ROS 2 Lyrical usa C++20) ----
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 20)
+endif()
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
@@ -8,6 +15,10 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+
+add_executable(check_std src/check_std.cpp)
+target_link_libraries(check_std PUBLIC rclcpp::rclcpp)
+install(TARGETS check_std DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
