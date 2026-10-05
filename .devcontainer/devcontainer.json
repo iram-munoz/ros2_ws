@@ -1,0 +1,30 @@
+{
+  "name": "six_dof_arm (ROS 2 Lyrical + Gazebo Jetty)",
+  "image": "osrf/ros:lyrical-simulation",
+  "workspaceFolder": "/ws",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/ws,type=bind",
+  "runArgs": [
+    "--net=host",
+    "--ipc=host"
+  ],
+  "containerEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}",
+    "QT_QPA_PLATFORM": "xcb"
+  },
+  "mounts": [
+    "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind"
+  ],
+  "postCreateCommand": "apt-get update && apt-get upgrade -y && rosdep update && rosdep install --from-paths src --ignore-src -r -y && grep -q 'source /opt/ros/lyrical/setup.bash' /root/.bashrc || echo 'source /opt/ros/lyrical/setup.bash' >> /root/.bashrc",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-iot.vscode-ros",
+        "ms-vscode.cpptools-extensions-pack",
+        "ms-python.python",
+        "xaver.clang-format",
+        "redhat.vscode-yaml",
+        "redhat.vscode-xml"
+      ]
+    }
+  }
+}
